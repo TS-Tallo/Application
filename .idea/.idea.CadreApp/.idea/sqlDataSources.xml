@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DdlMappings">
+    <mapping uuid="935b6fa1-2249-44ff-a043-12c4fd95f070" name="Azure SQL Database Server - cadreapp Mapping">
+      <data-sources db="f4fca9bd-bda5-40e1-9f93-1a920d68d8d7" ddl="6dc6c683-26e1-4ca3-bb2a-475abffa7e9d" />
+      <scope>
+        <node negative="1">
+          <node kind="database" negative="1" />
+          <node kind="database" qname="@">
+            <node kind="schema" negative="1" />
+          </node>
+        </node>
+      </scope>
+    </mapping>
+  </component>
+  <component name="SqlDataSourceStorage">
+    <option name="dataSources">
+      <list>
+        <State>
+          <option name="id" value="6dc6c683-26e1-4ca3-bb2a-475abffa7e9d" />
+          <option name="name" value="Azure SQL Database Server - cadreapp (DDL)" />
+          <option name="dbmsName" value="AZURE" />
+          <option name="parent" value="091f6a2d-1c4d-402a-a94b-15ec5ed0c182" />
+          <option name="urls">
+            <array />
+          </option>
+          <option name="outLayout" value="File per object by schema.groovy" />
+          <option name="scriptOptions">
+            <map>
+              <entry key="MsVsDdlCompatibility" value="1" />
+              <entry key="UserGrants" value="1" />
+            </map>
+          </option>
+          <option name="scopes">
+            <map>
+              <entry key="DB" value="" />
+            </map>
+          </option>
+        </State>
+      </list>
+    </option>
+  </component>
+</project>
