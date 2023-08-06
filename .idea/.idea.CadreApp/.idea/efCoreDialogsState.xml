@@ -3,15 +3,20 @@
   <component name="EfCoreDialogsState">
     <option name="keyValueStorage">
       <map>
+        <entry key="Common:80ac778d-35b2-4ec1-9809-32a31051ef93:dbContext" value="CadreApp.Context.MyDbContext" />
         <entry key="Common:buildConfiguration" value="Debug" />
         <entry key="Common:dbContextFolder" value="Context" />
         <entry key="Common:dbContextName" value="MyDbContext" />
         <entry key="Common:generateOnConfiguring" value="true" />
-        <entry key="Common:noBuild" value="false" />
+        <entry key="Common:noBuild" value="true" />
         <entry key="Common:outputFolder" value="TableEntities" />
         <entry key="Common:provider" value="Microsoft.EntityFrameworkCore.SqlServer" />
-        <entry key="Common:useAttributes" value="false" />
+        <entry key="Common:schemas" value="" />
+        <entry key="Common:tables" value="" />
+        <entry key="Common:targetFramework" value="net7.0-windows" />
+        <entry key="Common:useAttributes" value="true" />
         <entry key="Common:useDatabaseNames" value="true" />
+        <entry key="Common:useDefaultConnection" value="true" />
         <entry key="Common:usePluralizer" value="true" />
       </map>
     </option>

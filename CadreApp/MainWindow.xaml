@@ -80,33 +80,20 @@
                 </Grid>
             </Border>
 
-            <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" HorizontalAlignment="Left" Margin="450,0,0,0" Width="1300">
+            <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" HorizontalAlignment="Left" Margin="450,0,0,0" Width="1200">
                 <StackPanel>
                     <TextBlock Text="Trips" FontSize="24" FontWeight="Bold" HorizontalAlignment="Center" Margin="0,0,0,6" VerticalAlignment="Top" />
-
-                    <Grid Background="Transparent" Margin="0,0,0,4" Width="900" Height="20">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="10*" />
-                            <ColumnDefinition Width="60*" />
-                            <ColumnDefinition Width="14*" />
-                            <ColumnDefinition Width="14*" />
-                            <ColumnDefinition Width="39*" />
-                            <ColumnDefinition Width="46*" />
-                            <ColumnDefinition Width="32*" />
-                            <ColumnDefinition Width="50*" />
-                        </Grid.ColumnDefinitions>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="15.96" />
-                        </Grid.RowDefinitions>
-                        <TextBlock Text="ID" HorizontalAlignment="Center" FontWeight="Bold" FontSize="14"/>
-                        <TextBlock Text="Soldiers" Grid.Column="1" HorizontalAlignment="Center" FontWeight="Bold" FontSize="14" />
-                        <TextBlock Text="Co" Grid.Column="2" HorizontalAlignment="Center" FontWeight="Bold" FontSize="14" TextAlignment="Center" />
-                        <TextBlock Text="Plt" Grid.Column="3" HorizontalAlignment="Center" FontWeight="Bold" FontSize="14" TextAlignment="Center" />
-                        <TextBlock Text="Phone #s" Grid.Column="4" HorizontalAlignment="Center" FontWeight="Bold" FontSize="14" TextAlignment="Center"  />
-                        <TextBlock Text="Destination(s)" Grid.Column="5" HorizontalAlignment="Center" FontWeight="Bold" FontSize="14" TextAlignment="Center" />
-                        <TextBlock Text="Out Time" Grid.Column="6" HorizontalAlignment="Center" FontWeight="Bold" FontSize="14" TextAlignment="Center" />
-                        <TextBlock Text="Approving Cadre" Grid.Column="7"  HorizontalAlignment="Center" FontWeight="Bold" FontSize="14" TextAlignment="Center" Margin="0,0,0,-4" />
-                    </Grid>
+                    
+                    <DataGrid x:Name="tripDataGrid" AutoGenerateColumns="False" IsReadOnly="True" Margin="16,0,0,16">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="ID" Binding="{Binding TripID }" />
+                            <DataGridTextColumn Header="Soldiers" />
+                            <DataGridTextColumn Header="Phone #(s)" />
+                            <DataGridTextColumn Header="Destination(s)" Binding="{Binding GroupedLocations }" />
+                            <DataGridTextColumn Header="Time Out" Binding="{Binding time_out }" />
+                            <DataGridTextColumn Header="Approving Cadre" Binding="{Binding Cadre }"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
                 </StackPanel>
             </ScrollViewer>
         </Grid>

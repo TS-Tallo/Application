@@ -13,7 +13,11 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Data.SqlClient;
+using CadreApp.Context;
 using CadreApp.models;
+using CadreApp.TableEntities;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Diagnostics;
 
 namespace CadreApp
 {
@@ -25,7 +29,20 @@ namespace CadreApp
         public MainWindow()
         {
             InitializeComponent();
+            TableData();
             
+        }
+
+        public void TableData()
+        {
+            MyDbContext context = new MyDbContext();
+            var soldiersTable = context.soldiers;
+            var soldiers_tripTable = context.solders_trips;
+            var account = context.accounts;
+            var activeTrips = context.trips.Where(trip => trip.active == 1).ToList();
+            var activeIDs = activeTrips.Select(a => a.ID);
+            
+            tripDataGrid.ItemsSource = activeTrips;
         }
     }
 }
