@@ -5,22 +5,32 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:local="clr-namespace:CadreApp"
         mc:Ignorable="d"
-        Title="Add_Soldier" Height="200" Width="400">
+        Title="Add_Soldier" Height="160" Width="366">
     <Grid>
         <StackPanel Orientation="Horizontal">
             <StackPanel>
-                <TextBox TextWrapping="NoWrap" Height="Auto" Width="180" Background="Transparent" Foreground="Black" FontSize="20" HorizontalAlignment="Left" AutomationProperties.Name="Test" Text="Solder Name" />
-                <TextBox TextWrapping="NoWrap" Height="Auto" Width="180" Background="Transparent" Foreground="Black" FontSize="20" HorizontalAlignment="Left" Text="Phone Number" />
-                <TextBox TextWrapping="NoWrap" Height="Auto" Width="Auto" Background="Transparent" Foreground="Black" FontSize="20" Text="Destination" />
+                <TextBlock Text="Scan your Cac here to prefill your data." Margin="10,0,10,4"></TextBlock>
+                <TextBox Name="CacData" Margin="4,0,0,4" TextWrapping="NoWrap" Height="Auto" Width="240" Background="Transparent" Foreground="Black" FontSize="20" HorizontalAlignment="Left" />
+                <TextBlock Text="Phone Number: Ex. ###-###-####" Margin="10,0,10,4"></TextBlock>
+                <TextBox Name="phoneNumber" PreviewTextInput="OnPhoneNumberPreviewTextInput" Margin="4,0,0,4" TextWrapping="NoWrap" Height="Auto" Width="240" Background="Transparent" Foreground="Black" FontSize="20" HorizontalAlignment="Left" />
+                <TextBlock Text="Building: Ex. 25720" Margin="10,0,10,4"></TextBlock>
+                <TextBox Name="buildingNumber" Margin="4,0,0,4" TextWrapping="NoWrap" Height="Auto" Width="240" Background="Transparent" Foreground="Black" FontSize="20" HorizontalAlignment="Left" />
             </StackPanel>
             <StackPanel>
+                <TextBlock Text="Select a Platoon" Margin="20,0,10,4"></TextBlock>
                 <ComboBox x:Name="dPlatoon" Width="80" Background="Black" Foreground="#555" FontSize="20">
                     <ComboBoxItem Content="1st" />
                     <ComboBoxItem Content="2nd" />
                     <ComboBoxItem Content="3rd" />
                     <ComboBoxItem Content="4th" />
                 </ComboBox>
-                <Button Content="Add Soldier" Background="AliceBlue" Foreground="#555" FontSize="18" BorderThickness="0" Margin="15,26,10,0" HorizontalAlignment="Right" />
+                <TextBlock Text="Select a Company" Margin="20,0,10,4"></TextBlock>
+                <ComboBox x:Name="dCompany" Width="80" Background="Black" Foreground="#555" FontSize="20">
+                    <ComboBoxItem Content="A Co" />
+                    <ComboBoxItem Content="B Co" />
+                    <ComboBoxItem Content="C Co" />
+                </ComboBox>
+                <Button Content="Add Soldier" Background="AliceBlue" Foreground="#555" FontSize="18" BorderThickness="0" Margin="16,22,10,0" HorizontalAlignment="Right" Click="OnParseButtonClick"/>
             </StackPanel>
         </StackPanel>
     </Grid>

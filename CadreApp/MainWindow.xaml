@@ -14,6 +14,7 @@
             <Setter Property="Foreground" Value="Black" />
             <Setter Property="BorderThickness" Value="0" />
             <Setter Property="Padding" Value="5" />
+            
         </Style>
 
         <!-- Style for DataGrid headers -->
@@ -23,6 +24,7 @@
             <Setter Property="FontWeight" Value="Bold" />
             <Setter Property="BorderThickness" Value="0" />
             <Setter Property="Padding" Value="5" />
+            
         </Style>
         
     </Window.Resources>
@@ -49,9 +51,11 @@
                         <TextBlock Text="Sign in / out" FontSize="16" TextAlignment="Center" FontWeight="Bold" Foreground="White" />
                     </StackPanel>
 
-                    <StackPanel Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,16,0,0" Width="290" Height="434">
-                        <Grid Background="Transparent" Margin="0,0,0,10">
-                            <TextBlock Text="Select a Soldier" Grid.Column="0" HorizontalAlignment="Center" FontWeight="Bold" Foreground="White" />
+                    <StackPanel Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,16,0,0" Width="350" Height="434">
+                        <Grid Background="Transparent" Margin="10,0,0,10">
+                            <Button Width="80" HorizontalAlignment="Left" Content="Add Soldier" Click="OpenAddSolderWindowButton_Click"/>
+                            <TextBlock Text="Select a Soldier" HorizontalAlignment="Center" FontWeight="Bold" Foreground="White" />
+                            
                         </Grid>
                         <Grid Background="Transparent" Margin="8,0,8,30">
                             <Grid.RowDefinitions>
@@ -59,6 +63,7 @@
                                 <RowDefinition Height="*" />
                             </Grid.RowDefinitions>
                             
+
                             <DataGrid 
                                 x:Name="prepSoldiers" 
                                 HorizontalAlignment="Stretch"
@@ -80,18 +85,20 @@
                 </Grid>
             </Border>
 
-            <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" HorizontalAlignment="Left" Margin="450,0,0,0" Width="1200">
+            <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" HorizontalAlignment="Left" Margin="450,0,0,0" Width="860">
                 <StackPanel>
                     <TextBlock Text="Trips" FontSize="24" FontWeight="Bold" HorizontalAlignment="Center" Margin="0,0,0,6" VerticalAlignment="Top" />
                     
-                    <DataGrid x:Name="tripDataGrid" AutoGenerateColumns="False" IsReadOnly="True" Margin="16,0,0,16">
+                    <DataGrid x:Name="tripDataGrid" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" AutoGenerateColumns="False" IsReadOnly="True" Margin="16,0,0,16">
                         <DataGrid.Columns>
-                            <DataGridTextColumn Header="ID" Binding="{Binding TripID }" />
-                            <DataGridTextColumn Header="Soldiers" />
-                            <DataGridTextColumn Header="Phone #(s)" />
-                            <DataGridTextColumn Header="Destination(s)" Binding="{Binding GroupedLocations }" />
-                            <DataGridTextColumn Header="Time Out" Binding="{Binding time_out }" />
-                            <DataGridTextColumn Header="Approving Cadre" Binding="{Binding Cadre }"/>
+                            <DataGridTextColumn Width="Auto" Header="ID" Binding="{Binding ID }" />
+                            <DataGridTextColumn Width="*" Header="Soldier(s)" Binding="{Binding soldiers }" />
+                            <DataGridTextColumn Width="Auto" Header="Plt" Binding="{Binding platoons }" />
+                            <DataGridTextColumn Width="Auto" Header="Co" Binding="{Binding companies }" />
+                            <DataGridTextColumn Width="*" Header="Phone #(s)" Binding="{Binding phone_numbers }" />
+                            <DataGridTextColumn Width="*" Header="Destination(s)" Binding="{Binding destinations }" />
+                            <DataGridTextColumn Width="*" Header="Time Out" Binding="{Binding time_out }" />
+                            <DataGridTextColumn Width="*" Header="Approving Cadre" Binding="{Binding cadreout_name }"/>
                         </DataGrid.Columns>
                     </DataGrid>
                 </StackPanel>
