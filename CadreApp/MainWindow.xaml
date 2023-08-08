@@ -54,8 +54,8 @@
                     <StackPanel Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,16,0,0" Width="350" Height="434">
                         <Grid Background="Transparent" Margin="10,0,0,10">
                             <Button Width="80" HorizontalAlignment="Left" Content="Add Soldier" Click="OpenAddSolderWindowButton_Click"/>
-                            <TextBlock Text="Select a Soldier" HorizontalAlignment="Center" FontWeight="Bold" Foreground="White" />
-                            
+                            <TextBlock Margin="0,0,30,0" Text="Select a Soldier" HorizontalAlignment="Center" FontWeight="Bold" Foreground="White" />
+                            <Button Width="100" Margin="0,0,10,0" HorizontalAlignment="Right" Content="Update Soldier" Click="OpenModifySolderWindowButton_Click"/>
                         </Grid>
                         <Grid Background="Transparent" Margin="8,0,8,30">
                             <Grid.RowDefinitions>

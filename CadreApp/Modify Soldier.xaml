@@ -1,0 +1,56 @@
+﻿<Window x:Class="CadreApp.Modify_Soldier"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:local="clr-namespace:CadreApp"
+        mc:Ignorable="d"
+        Title="Modify Soldier" Height="300" Width="280">
+    <Grid>
+        <StackPanel Orientation="Horizontal">
+            <StackPanel>
+                <TextBlock Text="Soldier ID:" Margin="10,0,10,4"></TextBlock>
+                <TextBox Name="lookupSoldier" Margin="4,0,0,4" TextWrapping="NoWrap" Height="Auto" Width="120" Background="Transparent" Foreground="Black" FontSize="20" HorizontalAlignment="Left" />
+                <TextBlock Text="Last Name" Margin="10,0,10,0"></TextBlock>
+                <TextBox Name="lastName" Margin="4,0,0,4" TextWrapping="NoWrap" Height="Auto" Width="120" Background="Transparent" Foreground="Black" FontSize="20" HorizontalAlignment="Left" />
+                <TextBlock Text="First Name" Margin="10,0,10,0"></TextBlock>
+                <TextBox Name="firstName" Margin="4,0,0,4" TextWrapping="NoWrap" Height="Auto" Width="120" Background="Transparent" Foreground="Black" FontSize="20" HorizontalAlignment="Left" />
+                <TextBlock Text="Phone Number:" Margin="10,0,10,0"></TextBlock>
+                <TextBox Name="phoneNumber" PreviewTextInput="OnPhoneNumberPreviewTextInput" Margin="4,0,0,4" TextWrapping="NoWrap" Height="Auto" Width="120" Background="Transparent" Foreground="Black" FontSize="20" HorizontalAlignment="Left" />
+                <TextBlock Text="Building: Ex. 25720" Margin="10,0,10,4"></TextBlock>
+                <TextBox Name="buildingNumber" Margin="4,0,0,4" TextWrapping="NoWrap" Height="Auto" Width="120" Background="Transparent" Foreground="Black" FontSize="20" HorizontalAlignment="Left" />
+            </StackPanel>
+            
+            <StackPanel>
+                <Button Content="Lookup Soldier" Background="AliceBlue" Foreground="#555" FontSize="18" BorderThickness="0" Margin="8,22,10,4" HorizontalAlignment="Right" Click="OnParseButtonClick"/>
+                <TextBlock Text="Rank" Margin="30,0,10,4"></TextBlock>
+                <ComboBox x:Name="dRank" Margin="0,0,0,4" Width="80" Background="Black" Foreground="#555" FontSize="14">
+                    <ComboBoxItem Content="PVT" />
+                    <ComboBoxItem Content="PV2" />
+                    <ComboBoxItem Content="PFC" />
+                    <ComboBoxItem Content="SPC" />
+                    <ComboBoxItem Content="CPL" />
+                    <ComboBoxItem Content="SGT" />
+                    <ComboBoxItem Content="SSG" />
+                    <ComboBoxItem Content="SFC" />
+                    <ComboBoxItem Content="MSG" />
+                    <ComboBoxItem Content="1SG" />
+                </ComboBox>
+                <TextBlock Text="Platoon" Margin="30,0,10,4"></TextBlock>
+                <ComboBox x:Name="dPlatoon" Margin="0,0,0,4" Width="80" Background="Black" Foreground="#555" FontSize="14">
+                    <ComboBoxItem Content="1st" />
+                    <ComboBoxItem Content="2nd" />
+                    <ComboBoxItem Content="3rd" />
+                    <ComboBoxItem Content="4th" />
+                </ComboBox>
+                <TextBlock Text="Company" Margin="30,0,10,4"></TextBlock>
+                <ComboBox x:Name="dCompany" Margin="0,0,0,12" Width="80" Background="Black" Foreground="#555" FontSize="14">
+                    <ComboBoxItem Content="A Co" />
+                    <ComboBoxItem Content="B Co" />
+                    <ComboBoxItem Content="C Co" />
+                </ComboBox>
+                <Button Content="Update Soldier" Background="AliceBlue" Foreground="#555" FontSize="18" BorderThickness="0" Margin="10,14,10,0" HorizontalAlignment="Right" Click="OnParseButtonClick"/>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Window>

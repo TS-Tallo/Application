@@ -105,5 +105,10 @@ namespace CadreApp
             Add_Soldier addSoldier = new Add_Soldier();
             addSoldier.ShowDialog(); // Use this so they enter data in.
         }
+        private void OpenModifySolderWindowButton_Click(object sender, RoutedEventArgs e)
+        {
+            Modify_Soldier modifySolder = new Modify_Soldier();
+            modifySolder.ShowDialog(); // Use this so they enter data in.
+        }
     }
 }
