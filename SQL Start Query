@@ -1,0 +1,54 @@
+SQL Required Schema
+
+
+create table soldiers
+(
+    ID         bigint not null
+        constraint soldiers_pk
+            primary key,
+    rank       varchar(3),
+    name_first varchar(32),
+    name_last  varchar(32),
+    building   varchar(9),
+    company    varchar(4),
+    platoon    varchar(3),
+    phone_num  bigint
+)
+go
+
+create table accounts
+(
+    ID       bigint        not null
+        constraint accounts_soldiers_ID_fk
+            references soldiers,
+    password nvarchar(256) not null,
+    name     nvarchar(32)
+)
+go
+
+create table trips
+(
+    ID           varchar(10) not null
+        constraint trips_pk
+            primary key,
+    cadrein_ID   bigint,
+    cadreout_ID  bigint      not null,
+    time_in      datetime,
+    time_out     datetime    not null,
+    active       int         not null,
+    destinations nvarchar(max)
+)
+go
+
+create table [solders-trips]
+(
+    trip_id varchar(10)
+        constraint [solders-trips_trips_ID_fk]
+            references trips,
+    solders bigint
+        constraint [solders-trips_soldiers_ID_fk]
+            references soldiers
+)
+go
+
+
