@@ -1,0 +1,46 @@
+﻿<Window x:Class="CadreApp.Add_Cadre"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:local="clr-namespace:CadreApp"
+        mc:Ignorable="d"
+        Title="Add Soldier" Height="240" Width="380">
+    <Grid>
+        <StackPanel Orientation="Horizontal">
+            <StackPanel>
+                <TextBlock Text="ID (1-9999" Margin="10,0,10,4"></TextBlock>
+                <TextBox Name="ID" Margin="4,0,0,4" TextWrapping="NoWrap" Height="Auto" Width="240" Background="Transparent" Foreground="Black" FontSize="20" HorizontalAlignment="Left" />
+                <TextBlock Text="Last Name" Margin="10,0,10,4"></TextBlock>
+                <TextBox Name="lastName" Margin="4,0,0,4" TextWrapping="NoWrap" Height="Auto" Width="240" Background="Transparent" Foreground="Black" FontSize="20" HorizontalAlignment="Left" />
+                <TextBlock Text="Password" Margin="10,0,10,4"></TextBlock>
+                <PasswordBox Password="Enter password" Name="password" PasswordChar="●" Margin="4,0,10,4" FontSize="20" MinWidth="240" HorizontalAlignment="Center" FontWeight="Bold" Background="Transparent" />
+                <Button Content="Add Account to System" Background="AliceBlue" Foreground="#555" FontSize="18" BorderThickness="0" Margin="6,12,10,0" HorizontalAlignment="Left" Click="OnParseButtonClick"/>
+            </StackPanel>
+            <StackPanel>
+                <TextBlock Text="Select a Rank" Margin="20,0,10,5"></TextBlock>
+                <ComboBox x:Name="dRank" Width="80" Background="Black" Foreground="#555" FontSize="16">
+                    <ComboBoxItem Content="SDS" />
+                    <ComboBoxItem Content="DS" />
+                    <ComboBoxItem Content="SFC" />
+                    <ComboBoxItem Content="SSG" />
+                    <ComboBoxItem Content="SGT" />
+                </ComboBox>
+                <TextBlock Text="Select a Platoon" Margin="20,0,10,5"></TextBlock>
+                <ComboBox x:Name="dPlatoon" Width="80" Background="Black" Foreground="#555" FontSize="16">
+                    <ComboBoxItem Content="1st" />
+                    <ComboBoxItem Content="2nd" />
+                    <ComboBoxItem Content="3rd" />
+                    <ComboBoxItem Content="4th" />
+                </ComboBox>
+                <TextBlock Text="Select a Company" Margin="20,0,10,4"></TextBlock>
+                <ComboBox x:Name="dCompany" Width="80" Background="Black" Foreground="#555" FontSize="16">
+                    <ComboBoxItem Content="A Co" />
+                    <ComboBoxItem Content="B Co" />
+                    <ComboBoxItem Content="C Co" />
+                </ComboBox>
+                
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Window>

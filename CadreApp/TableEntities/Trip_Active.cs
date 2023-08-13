@@ -19,11 +19,9 @@ public partial class Trip_Active
     [StringLength(32)]
     public string? cadreout_name { get; set; }
 
-    [Column(TypeName = "datetime")]
-    public DateTime? time_in { get; set; }
-
-    [Column(TypeName = "datetime")]
-    public DateTime time_out { get; set; }
+    public string? time_in { get; set; }
+    
+    public string? time_out { get; set; }
 
     public string? destinations { get; set; }
 

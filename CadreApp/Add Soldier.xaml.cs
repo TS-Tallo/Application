@@ -18,6 +18,8 @@ public partial class Add_Soldier : Window
         InitializeComponent();
         var test_string =
             "M1G412AJ01T3C2QOJoseph               Wacha                     B54FUS AA00PVT   ME012BCN7BDPETOU78K";
+        var test_string_middle =
+            "M1G366CK01T133V4Zamir               ARomero                    B2EOUS AA00PFC   ME03RBCN6BDPDTOTIVJ";
         // ProcessCACData(test_string);
     }
     
@@ -75,21 +77,10 @@ public partial class Add_Soldier : Window
         CACData cacData = new CACData();
         cacData.DODID = FromBase32(barcodeData.Substring(1, 7));
         cacData.FirstName = barcodeData.Substring(16, 20).Trim();
-        cacData.LastName = barcodeData.Substring(36, 25).Trim();
+        cacData.LastName = barcodeData.Substring(37, 26).Trim();
         cacData.Rank = barcodeData.Substring(74, 6).Trim();
         return cacData;
     }
-    
-    // private void ProcessCACData(string rawData)
-    // {
-    //     CACData cacInfo = ParseCACBarcode(rawData);
-    //
-    //     // Now you have the parsed data in cacInfo which you can use as needed.
-    //     Console.WriteLine($"First Name: {cacInfo.FirstName}");
-    //     Console.WriteLine($"Last Name: {cacInfo.LastName}");
-    //     Console.WriteLine($"Rank: {cacInfo.Rank}");
-    //     Console.WriteLine($"DODID: {cacInfo.DODID}");
-    // }
     
     // Define a character set for Base32. This can vary based on specific requirements.
     private static readonly char[] Base32Chars = "0123456789ABCDEFGHIJKLMNOPQRSTUV".ToCharArray();
@@ -108,7 +99,8 @@ public partial class Add_Soldier : Window
 
             result = result * 32 + charValue;
         }
-
         return result;
     }
+    
+    
 }

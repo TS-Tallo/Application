@@ -22,7 +22,7 @@
             </StackPanel>
             
             <StackPanel>
-                <Button Content="Lookup Soldier" Background="AliceBlue" Foreground="#555" FontSize="18" BorderThickness="0" Margin="8,22,10,4" HorizontalAlignment="Right" Click="OnParseButtonClick"/>
+                <Button Content="Lookup Soldier" Background="AliceBlue" Foreground="#555" FontSize="18" BorderThickness="0" Margin="8,22,10,4" HorizontalAlignment="Right" Click="OnLookupButtonClick"/>
                 <TextBlock Text="Rank" Margin="30,0,10,4"></TextBlock>
                 <ComboBox x:Name="dRank" Margin="0,0,0,4" Width="80" Background="Black" Foreground="#555" FontSize="14">
                     <ComboBoxItem Content="PVT" />
@@ -33,6 +33,8 @@
                     <ComboBoxItem Content="SGT" />
                     <ComboBoxItem Content="SSG" />
                     <ComboBoxItem Content="SFC" />
+                    <ComboBoxItem Content="DS" />
+                    <ComboBoxItem Content="SDS" />
                     <ComboBoxItem Content="MSG" />
                     <ComboBoxItem Content="1SG" />
                 </ComboBox>
@@ -49,7 +51,7 @@
                     <ComboBoxItem Content="B Co" />
                     <ComboBoxItem Content="C Co" />
                 </ComboBox>
-                <Button Content="Update Soldier" Background="AliceBlue" Foreground="#555" FontSize="18" BorderThickness="0" Margin="10,14,10,0" HorizontalAlignment="Right" Click="OnParseButtonClick"/>
+                <Button Content="Update Soldier" Background="AliceBlue" Foreground="#555" FontSize="18" BorderThickness="0" Margin="10,14,10,0" HorizontalAlignment="Right" Click="OnUpdateButtonClick"/>
             </StackPanel>
         </StackPanel>
     </Grid>

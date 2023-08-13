@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using CadreApp.TableEntities;
 using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json;
 
 namespace CadreApp.Context;
 
@@ -27,12 +28,11 @@ public partial class MyDbContext : DbContext
     public virtual DbSet<soldier_full> soldier_fulls { get; set; }
 
     public virtual DbSet<trip> trips { get; set; }
-
-    public virtual DbSet<trip_location> trip_locations { get; set; }
-
+    
+    Config loadedConfig = ConfigurationManager.LoadConfig();
+    
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseSqlServer("Server=tcp:cadreapp.database.windows.net,1433;Initial Catalog=cadreapp_db;Persist Security Info=False;User ID=cadreadmin;Password=\"IfYourNotFirst_YoureLAST\";MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
+        => optionsBuilder.UseSqlServer(loadedConfig.ConnectionString);
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -46,12 +46,13 @@ public partial class MyDbContext : DbContext
             entity.HasOne(d => d.IDNavigation).WithMany()
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("accounts_soldiers_ID_fk");
+                entity.HasKey(a => new { a.ID});
         });
 
         modelBuilder.Entity<solders_trip>(entity =>
         {
             entity.HasOne(d => d.soldersNavigation).WithMany().HasConstraintName("solders-trips_soldiers_ID_fk");
-
+            entity.HasKey(st => new { st.trip_id, st.solders });
             entity.HasOne(d => d.trip).WithMany().HasConstraintName("solders-trips_trips_ID_fk");
         });
 
@@ -71,13 +72,7 @@ public partial class MyDbContext : DbContext
         {
             entity.HasKey(e => e.ID).HasName("trips_pk");
         });
-
-        modelBuilder.Entity<trip_location>(entity =>
-        {
-            entity.HasOne(d => d.trip).WithMany()
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("trip-locations_trips_ID_fk");
-        });
+        
 
         OnModelCreatingPartial(modelBuilder);
     }

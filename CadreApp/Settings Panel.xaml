@@ -1,0 +1,32 @@
+﻿<Window x:Class="CadreApp.Settings_Panel"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:local="clr-namespace:CadreApp"
+        mc:Ignorable="d"
+        Title="Settings_Panel" 
+        Height="300" Width="500"
+        Background="Gray">
+    <Grid>
+        <Grid>
+            <TextBlock Margin="10,0,4,10" Text="Settings Menu" HorizontalAlignment="Left" FontSize="36" FontWeight="Bold" Foreground="White" />
+        </Grid>
+        <Grid>
+            <TextBlock Margin="10,50,4,10" Text="Account Management" HorizontalAlignment="Left" FontSize="24" Foreground="White" />
+            <Button Margin="10,90,4,10" Width="80" Height="30" VerticalAlignment="Top" HorizontalAlignment="Left" Content="Add Account" Click="OpenAddCadreWindowButton_Click"/>
+        </Grid>
+        <StackPanel>
+            <TextBlock Margin="10,120,4,0" Text="Photo Location" HorizontalAlignment="Left" FontSize="24" Foreground="White" />
+            <TextBox Margin="10,0,4,10" Name="PhotoLocationTextBox" Background="Transparent" ></TextBox>
+            <Button Margin="10,0,4,10" Width="80" Height="30" VerticalAlignment="Top" HorizontalAlignment="Right" Content="Save Location" Click="SavePhotoLocationButton_Click"/>
+            <TextBlock Margin="10,-30,4,0" Text="Connection String for Database" HorizontalAlignment="Left" FontSize="24" Foreground="White" />
+            <TextBox Margin="10,0,4,10" Name="ConnectionStringTextBox" Background="Transparent" ></TextBox>
+            <Button Margin="10,0,4,10" Width="100" Height="30" VerticalAlignment="Top" HorizontalAlignment="Right" Content="Save Connection" Click="SaveConnectionStringButton_Click"/>
+        </StackPanel>
+        <Grid>
+            
+        </Grid>
+        
+    </Grid>
+</Window>
