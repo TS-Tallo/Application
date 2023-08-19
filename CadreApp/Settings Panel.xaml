@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:CadreApp"
         mc:Ignorable="d"
         Title="Settings_Panel" 
-        Height="300" Width="500"
+        Height="340" Width="500"
         Background="Gray">
     <Grid>
         <Grid>

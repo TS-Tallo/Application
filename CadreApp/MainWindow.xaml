@@ -88,7 +88,7 @@
                                 ItemsSource="{Binding prepSoldiers}">
                                 <DataGrid.Columns>
                                     <DataGridTextColumn Header="ID" Binding="{Binding ID}" Visibility="Collapsed" />
-                                    <DataGridTextColumn Header="Solders" Binding="{Binding rank_name}" Width="100" />
+                                    <DataGridTextColumn Header="Soldiers" Binding="{Binding rank_name}" Width="100" />
                                     <DataGridTextColumn Header="Plt" Binding="{Binding platoon}" Width="30" />
                                     <DataGridTextColumn Header="Company" Binding="{Binding company}" Width="*" />
                                     <DataGridTextColumn Header="Phone #s" Binding="{Binding formatted_phone}" Width="*" />

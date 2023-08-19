@@ -13,11 +13,11 @@
             <TextBlock Text="Scan your Cac here. All Soldiers must be scanned to sign in." Foreground="White" Margin="10,0,10,4"></TextBlock>
             <Grid>
                 <TextBox Name="CacData" Margin="4,0,0,4" TextWrapping="NoWrap" Height="Auto" MinHeight="20" Width="320" Background="Transparent" Foreground="Black" FontSize="8" HorizontalAlignment="Left" />
-                <Button Content="Find Trip" Background="AliceBlue" Foreground="#555" FontSize="18" BorderThickness="0" Margin="16,0,180,5" HorizontalAlignment="Right" Click="OnParseButtonClick"/>
+                <Button Name="TripButton" Content="Find Trip" Background="AliceBlue" Foreground="#555" FontSize="18" BorderThickness="0" Margin="16,0,180,5" HorizontalAlignment="Right" Click="OnParseButtonClick"/>
             </Grid>
             
-            
             <Grid Background="Transparent" Margin="8,0,8,10">
+                
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" />
                     <RowDefinition Height="*" />
@@ -29,9 +29,8 @@
                     AutoGenerateColumns="False" 
                     Height="360"
                     IsReadOnly="True"
-                    ItemsSource="{Binding returnSoldiers}">
+                    ItemsSource="{Binding returnSoldiersDataGrid}">
                     <DataGrid.Columns>
-                        <DataGridTextColumn Header="ID" Binding="{Binding ID}" Visibility="Collapsed" />
                         <DataGridTextColumn Header="Solders" Binding="{Binding rank_name}" Width="100" />
                         <DataGridTextColumn Header="Plt" Binding="{Binding platoon}" Width="30" />
                         <DataGridTextColumn Header="Company" Binding="{Binding company}" Width="*" />
@@ -45,6 +44,7 @@
                         </DataGridTemplateColumn>
                     </DataGrid.Columns>
                 </DataGrid>
+                
             </Grid>
             <TextBlock Text="Soldiers required to Scan." FontSize="18" Foreground="White" Margin="10,0,10,4"></TextBlock>
         </StackPanel>

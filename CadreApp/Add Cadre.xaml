@@ -9,7 +9,7 @@
     <Grid>
         <StackPanel Orientation="Horizontal">
             <StackPanel>
-                <TextBlock Text="ID (1-9999" Margin="10,0,10,4"></TextBlock>
+                <TextBlock Text="ID (1-9999)" Margin="10,0,10,4"></TextBlock>
                 <TextBox Name="ID" Margin="4,0,0,4" TextWrapping="NoWrap" Height="Auto" Width="240" Background="Transparent" Foreground="Black" FontSize="20" HorizontalAlignment="Left" />
                 <TextBlock Text="Last Name" Margin="10,0,10,4"></TextBlock>
                 <TextBox Name="lastName" Margin="4,0,0,4" TextWrapping="NoWrap" Height="Auto" Width="240" Background="Transparent" Foreground="Black" FontSize="20" HorizontalAlignment="Left" />

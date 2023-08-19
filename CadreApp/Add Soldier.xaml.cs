@@ -16,10 +16,6 @@ public partial class Add_Soldier : Window
     public Add_Soldier()
     {
         InitializeComponent();
-        var test_string =
-            "M1G412AJ01T3C2QOJoseph               Wacha                     B54FUS AA00PVT   ME012BCN7BDPETOU78K";
-        var test_string_middle =
-            "M1G366CK01T133V4Zamir               ARomero                    B2EOUS AA00PFC   ME03RBCN6BDPDTOTIVJ";
         // ProcessCACData(test_string);
     }
     
