@@ -51,4 +51,55 @@ create table [solders-trips]
 )
 go
 
+CREATE view Trip_Active as
+    SELECT t.ID,
+           IIF(t.cadrein_ID IS NULL, 'No Cadre In', cIn.name)  AS cadrein_name,
+           cOut.name                                           AS cadreout_name,
+           FORMAT(t.time_in, 'yyyy-MM-dd HH:mm:ss')            AS time_in,
+           FORMAT(t.time_out, 'yyyy-MM-dd HH:mm:ss')           AS time_out,
+           t.destinations,
+           STUFF(
+                   (SELECT CHAR(13) + CHAR(10) + s.rank_name
+                    FROM [solders-trips] st
+                             JOIN [soldier_full] s ON st.solders = s.ID
+                    WHERE st.trip_id = t.ID
+                    FOR XML PATH(''), TYPE)
+                       .value('.', 'NVARCHAR(MAX)'), 1, 2, '') AS soldiers,
+           STUFF(
+                   (SELECT CHAR(13) + CHAR(10) + s.platoon + ' Plt'
+                    FROM [solders-trips] st
+                             JOIN [soldier_full] s ON st.solders = s.ID
+                    WHERE st.trip_id = t.ID
+                    FOR XML PATH(''), TYPE)
+                       .value('.', 'NVARCHAR(MAX)'), 1, 2, '') AS platoons,
+           STUFF(
+                   (SELECT CHAR(13) + CHAR(10) + s.company
+                    FROM [solders-trips] st
+                             JOIN [soldier_full] s ON st.solders = s.ID
+                    WHERE st.trip_id = t.ID
+                    FOR XML PATH(''), TYPE)
+                       .value('.', 'NVARCHAR(MAX)'), 1, 2, '') AS companies,
+           STUFF(
+                   (SELECT CHAR(13) + CHAR(10) + s.formatted_phone
+                    FROM [solders-trips] st
+                             JOIN [soldier_full] s ON st.solders = s.ID
+                    WHERE st.trip_id = t.ID
+                    FOR XML PATH(''), TYPE)
+                       .value('.', 'NVARCHAR(MAX)'), 1, 2, '') AS phone_numbers
+    FROM trips t
+             LEFT JOIN accounts cIn ON t.cadrein_ID = cIn.ID
+             JOIN accounts cOut ON t.cadreout_ID = cOut.ID
+    WHERE t.active = 1
+go
 
+CREATE view soldier_full as
+    SELECT ID,
+           building,
+           company,
+           platoon,
+           CONCAT(rank, ' ', name_last, ', ', name_first)         AS rank_name,
+           '(' + SUBSTRING(CAST(phone_num AS NVARCHAR(10)), 1, 3) + ')'
+               + SUBSTRING(CAST(phone_num AS NVARCHAR(10)), 4, 3) + '-'
+               + SUBSTRING(CAST(phone_num AS NVARCHAR(10)), 7, 4) AS formatted_phone
+    FROM soldiers
+go
